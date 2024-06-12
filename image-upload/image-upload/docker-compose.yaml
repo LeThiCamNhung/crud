@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  image-upload-web:
+    image: hoangndst/image-upload-web
+    ports:
+      - "80:80"
+  image-upload:
+    image: hoangndst/image-upload 
+    ports:
+      - "3000:3000"
+    environment:
+      YOUR_GCP_PROJECT_ID: hoang-421106
+      YOUR_GCS_BUCKET_NAME: hoangnd8
+      YOUR_CLOUD_SQL_IP_ADDRESS: 34.80.33.18
+      YOUR_CLOUD_SQL_USER: hoangnd8
+      YOUR_CLOUD_SQL_PASSWORD: Hoang2002
+      YOUR_CLOUD_SQL_DATABASE: hoangnd8_image
+    volumes:
+      - ./credentials.json:/app/keyfile.json
